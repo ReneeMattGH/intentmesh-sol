@@ -232,7 +232,7 @@ Result:      48,291 BONK lands in your wallet in 6.2 seconds.
       │
       ▼
  ┌──────────────────────┐
- │  1. PARSE            │  Grok AI → Intent JSON
+ │  1. PARSE            │  AI → Intent JSON
  │     (off-chain)      │  Zod schema validation
  └──────────┬───────────┘
             │
