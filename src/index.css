@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* IntentMesh - premium dark Solana theme (default = dark) */
+    --background: 240 18% 5%;
+    --foreground: 240 10% 96%;
+
+    --card: 240 16% 8%;
+    --card-foreground: 240 10% 96%;
+
+    --popover: 240 18% 7%;
+    --popover-foreground: 240 10% 96%;
+
+    --primary: 267 95% 65%;
+    --primary-foreground: 240 18% 5%;
+    --primary-glow: 280 100% 72%;
+
+    --teal: 172 90% 55%;
+    --teal-foreground: 240 18% 5%;
+
+    --secondary: 240 12% 14%;
+    --secondary-foreground: 240 10% 96%;
+
+    --muted: 240 10% 12%;
+    --muted-foreground: 240 6% 60%;
+
+    --accent: 267 60% 18%;
+    --accent-foreground: 240 10% 96%;
+
+    --destructive: 0 84% 62%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 145 75% 50%;
+    --warning: 38 95% 60%;
+
+    --border: 240 12% 16%;
+    --input: 240 12% 14%;
+    --ring: 267 95% 65%;
+
+    --radius: 0.9rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(267 95% 65%), hsl(280 100% 72%));
+    --gradient-mesh: radial-gradient(circle at 20% 10%, hsl(267 95% 65% / 0.18), transparent 50%),
+                     radial-gradient(circle at 85% 30%, hsl(172 90% 55% / 0.12), transparent 45%),
+                     radial-gradient(circle at 50% 90%, hsl(280 100% 72% / 0.14), transparent 55%);
+    --gradient-card: linear-gradient(135deg, hsl(240 16% 9% / 0.9), hsl(240 16% 7% / 0.9));
+
+    --shadow-glow: 0 10px 40px -10px hsl(267 95% 65% / 0.45);
+    --shadow-card: 0 8px 32px -12px hsl(240 30% 2% / 0.7);
+
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --sidebar-background: 240 18% 5%;
+    --sidebar-foreground: 240 10% 96%;
+    --sidebar-primary: 267 95% 65%;
+    --sidebar-primary-foreground: 240 18% 5%;
+    --sidebar-accent: 240 12% 14%;
+    --sidebar-accent-foreground: 240 10% 96%;
+    --sidebar-border: 240 12% 16%;
+    --sidebar-ring: 267 95% 65%;
+  }
+
+  .dark {
+    /* same palette - app is dark by default */
+    --background: 240 18% 5%;
+    --foreground: 240 10% 96%;
+    --card: 240 16% 8%;
+    --card-foreground: 240 10% 96%;
+    --popover: 240 18% 7%;
+    --popover-foreground: 240 10% 96%;
+    --primary: 267 95% 65%;
+    --primary-foreground: 240 18% 5%;
+    --secondary: 240 12% 14%;
+    --secondary-foreground: 240 10% 96%;
+    --muted: 240 10% 12%;
+    --muted-foreground: 240 6% 60%;
+    --accent: 267 60% 18%;
+    --accent-foreground: 240 10% 96%;
+    --destructive: 0 84% 62%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 12% 16%;
+    --input: 240 12% 14%;
+    --ring: 267 95% 65%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { color-scheme: dark; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-image: var(--gradient-mesh);
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .glass-card {
+    background: var(--gradient-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+  }
+  .glow-primary { box-shadow: var(--shadow-glow); }
+  .hover-lift {
+    transition: transform 0.3s var(--transition-smooth), border-color 0.3s var(--transition-smooth), box-shadow 0.3s var(--transition-smooth);
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    border-color: hsl(var(--primary) / 0.5);
+    box-shadow: 0 20px 50px -20px hsl(267 95% 65% / 0.3);
+  }
+}
